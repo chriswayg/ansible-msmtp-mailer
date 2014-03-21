@@ -2,7 +2,6 @@
 
 This ansible role deploys msmtp for Ubuntu 12.04 (tested on vagrant)
 
-
 ##Prerequisite
 * Having ansible installed on your workstation. 
 * Having an SMTP server 
