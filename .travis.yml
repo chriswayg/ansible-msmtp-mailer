@@ -8,7 +8,6 @@ install:
   - pip install ansible
 script:
   - echo localhost > inventory
-  - echo "[defaults]" > ansible.cfg
-  - echo "roles_path = ../" >> ansible.cfg
+  - export ANSIBLE_ROLES_PATH="../"
   - ansible-playbook -i inventory --syntax-check msmtp.yml
   - ansible-playbook -i inventory --connection=local --sudo -vvvv msmtp.yml
