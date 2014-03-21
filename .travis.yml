@@ -9,5 +9,5 @@ install:
 script:
   - echo localhost > inventory
   - export ANSIBLE_ROLES_PATH="../"
-  - ansible-playbook -i inventory --syntax-check msmtp.yml
-  - ansible-playbook -i inventory --connection=local --sudo -vvvv msmtp.yml
+  - ansible-playbook -i inventory --syntax-check mstmp.yml
+  - ansible-playbook -i inventory --connection=local --sudo -vvvv mstmp.yml
