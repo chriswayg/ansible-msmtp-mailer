@@ -1,0 +1,30 @@
+---
+
+# Author: Adham Helal
+#
+# Objective: Deploy msmtp 
+
+- name: Update apt cache
+  apt: update_cache=yes cache_valid_time=3600
+  tags: mail
+
+- name: Install  msmtp and mailx
+  apt:  pkg={{item}} state=present
+  with_items:
+    - msmtp
+    - msmtp-mta
+    - bsd-mailx
+  tags: mail    
+  notify: test mail
+
+- name: Copy mstprc conf file
+  template: src=msmtprc.j2 dest=/etc/msmtprc 
+            owner=root group=root mode=0644
+  tags: mail
+  notify: test mail
+
+- name: Copy aliases conf file
+  template: src=aliases.j2 dest=/etc/aliases 
+            owner=root group=root mode=0644
+  tags: mail
+  notify: test mail

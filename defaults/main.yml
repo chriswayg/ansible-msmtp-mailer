@@ -1,0 +1,28 @@
+---
+msmtp_accounts:
+      #Account 1
+    - account  : "gmail"
+      host     : "smtp.gmail.com"
+      port     : 587
+      auth     : "on"
+      user     : "example@gmail.example"
+      password : "some password"
+      #Account 2
+    - account  : "mysmtp"
+      host     : "smtp.example"
+      port     : 587
+      auth     : "on"
+      user     : "myuser"
+      password : "123456"
+
+msmtp_default_account: "gmail"
+msmtp_from           : "My Org"
+
+## Logging (Select A) "syslog" or B) "file" logging or C) "no" log
+msmtp_log           : "syslog"
+#msmtp_logfile       : /var/log/msmtp.log
+
+## Aliases mail account ( only msmtp_alias_default is required the rest is optional )
+msmtp_alias_default : ops@example.
+msmtp_alias_root    : root@example.com
+msmtp_alias_cron    : cron@example.com
