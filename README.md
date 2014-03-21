@@ -56,6 +56,7 @@ This ansible role deploys msmtp for Ubuntu 12.04 (tested on vagrant)
        ```
         msmtp_log     : "no"
        ```
+
   - Mail aliases 
      - *msmtp_alias_default:* default email this required 
 
