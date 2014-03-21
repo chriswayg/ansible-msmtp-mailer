@@ -79,7 +79,8 @@ You can configure your variables in ansible with one of the following
 
 ##Run
 **By default the mstmp will fail because the configuration uses a bogus smtp server you need to use a valid smtp server**
-    ```ansible-playbook -l hostname msmtp.yml```
+    
+  ```ansible-playbook -l hostname msmtp.yml```
 
 ##Test
   You should get a test mail if it works on the root mail
