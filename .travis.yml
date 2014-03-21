@@ -1,0 +1,14 @@
+---
+language: python
+python: "2.7"
+before_install:
+ - sudo apt-get update -qq
+ - sudo apt-get install -qq python-apt python-pycurl
+install:
+  - pip install ansible
+script:
+  - echo localhost > inventory
+  - echo "[defaults]" > ansible.cfg
+  - echo "roles_path = ../" >> ansible.cfg
+  - ansible-playbook -i inventory --syntax-check msmtp.yml
+  - ansible-playbook -i inventory --connection=local --sudo -vvvv msmtp.yml
