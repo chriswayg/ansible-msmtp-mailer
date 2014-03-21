@@ -11,7 +11,7 @@ This ansible role deploys msmtp for Ubuntu 12.04 (tested on vagrant)
 * ansible galaxy ```ansible-galaxy install adham.helal.msmtp```
 
 ##Variables 
-  Mostly you would need to configure the following variables 
+  All the default variables are located **defaults/main.yml**. Mostly you would need to configure the following variables. 
   - *msmtp_accounts:* You can define one or more smtp account 
  
       ```
@@ -68,8 +68,6 @@ This ansible role deploys msmtp for Ubuntu 12.04 (tested on vagrant)
      - *msmtp_alias_cron:* cron email this optional
 
        ```msmtp_alias_cron : cron@example.com``` 
-
-** All the default variables are located **defaults/main.yml**
 
 ##Configure
 You can configure your variables in ansible with one of the following
