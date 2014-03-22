@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/ahelal/ansible-msmtp.svg?branch=master)](https://travis-ci.org/ahelal/ansible-msmtp)
 #Readme
 
 This ansible role deploys msmtp for Ubuntu 12.04 (tested on vagrant)
