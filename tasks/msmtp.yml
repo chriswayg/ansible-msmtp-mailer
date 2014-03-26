@@ -18,8 +18,12 @@
   notify: test mail
 
 - name: Copy mstprc conf file
-  template: src=msmtprc.j2 dest=/etc/msmtprc 
-            owner=root group=root mode=0644
+  template: 
+     src=msmtprc.j2
+     dest=/etc/msmtprc
+     owner=root
+     group=root
+     mode=0644
   tags: mail
   notify: test mail
 
