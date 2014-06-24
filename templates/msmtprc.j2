@@ -3,7 +3,11 @@
 defaults
 auth   on
 tls    on
+{% if msmtp_tls_trust_file is defined %}
+tls_trust_file {{msmtp_tls_trust_file}}
+{% else %}
 tls_trust_file /etc/ssl/certs/ca-certificates.crt
+{% endif %}
 
 # Logging 
 {% if msmtp_log is defined %}
