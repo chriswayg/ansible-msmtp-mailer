@@ -1,17 +1,18 @@
 [![Build Status](https://travis-ci.org/ahelal/ansible-msmtp.svg?branch=master)](https://travis-ci.org/ahelal/ansible-msmtp)
-#Readme
+
+# Readme
 
 This ansible role deploys msmtp for Debian 9 stretch (tested on vagrant)
 
-##Prerequisite
+## Prerequisite
 * Having ansible installed on your workstation.
 * Having an SMTP server
 
-##How to install
+## How to install
 * Use github to clone/fork in your role directory
 * ansible galaxy ```ansible-galaxy install adham.helal.msmtp```
 
-##Variables
+## Variables
   All the default variables are located **defaults/main.yml**. Mostly you would need to configure the following variables.
   - *msmtp_accounts:* You can define one or more smtp account
 
@@ -71,7 +72,7 @@ This ansible role deploys msmtp for Debian 9 stretch (tested on vagrant)
 
        ```msmtp_alias_cron : cron@example.com```
 
-##Configure
+## Configure
 You can configure your variables in ansible with one of the following
 
  * Create a variable in host/group variables directory. (recommended)
@@ -79,14 +80,14 @@ You can configure your variables in ansible with one of the following
  * Run ansible-playbook with -e
  * Edit the default/main.yml (not recommended)
 
-##Run
+## Run
 **By default the mstmp will fail because the configuration uses a bogus smtp server you need to use a valid smtp server**
 
   ```ansible-playbook -l hostname msmtp.yml```
 
-##Test
+## Test
   You should get a test mail if it works on the root mail
 
-##Possible issues
+## Possible issues
  From field requires more work
 [http://msmtp.sourceforge.net/doc/msmtp.html#Envelope_002dfrom-address](http://msmtp.sourceforge.net/doc/msmtp.html#Envelope_002dfrom-address)
