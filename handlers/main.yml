@@ -1,5 +1,5 @@
 ---
 # send test mail to admin
 - name: test mail
-  shell: echo "Test mail from new/updated MSTMP at" `hostname` | mail root -s "Test SMTP `hostname`"
+  shell: echo "Test mail from new/updated MSTMP at" `hostname -f` | mail root -s "Test SMTP at `hostname -f`"
   tags: mail
