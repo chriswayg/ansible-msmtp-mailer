@@ -1,13 +1,29 @@
 ---
-language: python
-python: "2.7"
-before_install:
- - sudo apt-get update -qq
- - sudo apt-get install -qq python-apt python-pycurl
-install:
-  - pip install ansible
+services: docker
+
+env:
+  - distro: ubuntu1604
+  - distro: debian9
+  - distro: debian8
+
 script:
-  - echo localhost > inventory
-  - export ANSIBLE_ROLES_PATH="../"
-  - ansible-playbook -i inventory --syntax-check mstmp.yml
-  - ansible-playbook -i inventory --connection=local --sudo -vvvv mstmp.yml
+  # Configure test script so we can run extra tests after playbook is run
+  - export container_id=$(date +%s)
+  - export cleanup=false
+
+  # Download test shim.
+  - wget -O ${PWD}/tests/test.sh https://gist.githubusercontent.com/geerlingguy/73ef1e5ee45d8694570f334be385e181/raw/
+  - chmod +x ${PWD}/tests/test.sh
+
+  # Run tests.
+  - ${PWD}/tests/test.sh
+
+  # Setup test site.
+  - 'docker exec ${container_id} mkdir -p /var/www/test'
+  - 'docker exec ${container_id} bash -c "echo Success >| /var/www/test/index.html"'
+
+  # Make sure virtualhost exists.
+  - 'docker exec --tty ${container_id} env TERM=xterm curl http://localhost/ | grep "Success"'
+
+notifications:
+webhooks: https://galaxy.ansible.com/api/v1/notifications/
