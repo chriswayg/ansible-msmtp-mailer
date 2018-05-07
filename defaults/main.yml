@@ -29,4 +29,4 @@ msmtp_alias_default : emailer.tests@yandex.com
 msmtp_alias_root    : emailer.tests@yandex.com
 msmtp_alias_cron    : emailer.tests@yandex.com
 
-msmtp_send_test_mail: yes
+msmtp_send_test_mail: no
