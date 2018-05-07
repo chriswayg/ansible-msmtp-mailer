@@ -2,11 +2,10 @@
 
 # chriswayg.msmtp-mailer
 
-This ansible role deploys msmtp as mailer for Debian / Ubuntu.
+This ansible role deploys msmtp as a mailer for Debian / Ubuntu.
 
 ## Prerequisite
-* Having ansible installed on your workstation.
-* Having an SMTP server
+* Access to a functioning SMTP server.
 
 ## How to install
 * Use github to clone/fork into your role directory
@@ -39,20 +38,17 @@ This ansible role deploys msmtp as mailer for Debian / Ubuntu.
 
   - Logging
      - Option A (syslog)
-
        ```
         msmtp_log : "syslog"
        ```
 
      - Option B (file logging)
-
        ```
         msmtp_log     : "file"
         msmtp_logfile : /var/log/msmtp.log
        ```
 
      - Option C (No logging)
-
        ```
         msmtp_log     : "no"
        ```
@@ -60,15 +56,15 @@ This ansible role deploys msmtp as mailer for Debian / Ubuntu.
   - Mail aliases
      - *msmtp_alias_default:* default email this required
 
-       ```msmtp_alias_default : ops@example.com```
+         `msmtp_alias_default : ops@example.com`
 
      - *msmtp_alias_root:* root email this is optional
 
-       ```msmtp_alias_root : root@example.com```
+         `msmtp_alias_root : root@example.com`
 
      - *msmtp_alias_cron:* cron email this optional
 
-       ```msmtp_alias_cron : cron@example.com```
+         `msmtp_alias_cron : cron@example.com`
 
 ## Configure
 You can configure your variables in ansible with one of the following
