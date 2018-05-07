@@ -21,7 +21,7 @@
   tags:
     - mail
 
-- name: Install msmtp and mailx.
+- name: Install msmtp and mailx on Debian.
   apt:
     pkg: "{{item}}"
     state: present
@@ -33,7 +33,7 @@
   when: ansible_os_family == "Debian"
 
 # not tested my modifications with Archlinux
-- name: Install msmtp and mailx.
+- name: Install msmtp and mailx on Archlinux.
   pacman: name={{item}} state=present
   with_items:
     - msmtp

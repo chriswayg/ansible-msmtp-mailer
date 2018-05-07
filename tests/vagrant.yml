@@ -1,4 +1,3 @@
-# test file for fail2ban
 ---
 - hosts: all
   remote_user: vagrant
