@@ -6,3 +6,4 @@
   roles:
     - role: ../../
       msmtp_send_test_mail: yes
+      msmtp_remove_mtas: yes
