@@ -1,43 +1,41 @@
 [![Build Status](https://travis-ci.org/chriswayg/ansible-msmtp.svg?branch=master)](https://travis-ci.org/chriswayg/ansible-msmtp)
 
-# Readme
+# chriswayg.msmtp-mailer
 
-This ansible role deploys msmtp for Debian 9 stretch (tested on vagrant)
+This ansible role deploys msmtp for Debian / Ubuntu.
 
 ## Prerequisite
 * Having ansible installed on your workstation.
 * Having an SMTP server
 
 ## How to install
-* Use github to clone/fork in your role directory
-* ansible galaxy ```ansible-galaxy install adham.helal.msmtp```
+* Use github to clone/fork into your role directory
+* ansible galaxy ```ansible-galaxy install chriswayg.msmtp-mailer```
 
 ## Variables
   All the default variables are located **defaults/main.yml**. Mostly you would need to configure the following variables.
-  - *msmtp_accounts:* You can define one or more smtp account
+  - *msmtp_accounts:* You can define one or more smtp accounts:
 
       ```
       msmtp_accounts:
-      - account  : "gmail"
-        host     : "smtp.gmail.com"
+      - account  : gmail
+        host     : smtp.gmail.com
         port     : 587
         auth     : "on"
-        user     : "example@gmail.example"
+        from     : example@gmail.example
+        user     : example@gmail.example
         password : "some password"
-      - account  : "mysmtp"
-        host     : "smtp.example"
+      - account  : mysmtp
+        host     : smtp.example
         port     : 587
         auth     : "on"
-        user     : "myuser"
-        password : "123456"
+        from     : admin@example.org
+        user     : myuser@example.org
+        password : plain-text-password2
       ```
   - *msmtp_default_account:* Default smtp account to use
 
     ```msmtp_default_account: "gmail"```
-
-  - *msmtp_from:* From field
-
-    ```msmtp_from : "No Reply"```
 
   - Logging
      - Option A (syslog)
@@ -81,13 +79,12 @@ You can configure your variables in ansible with one of the following
  * Edit the default/main.yml (not recommended)
 
 ## Run
-**By default the mstmp will fail because the configuration uses a bogus smtp server you need to use a valid smtp server**
+**By default mstmp will work as the configuration uses a real smtp server (for testing only!)**
 
   ```ansible-playbook -l hostname msmtp.yml```
 
 ## Test
   You should get a test mail if it works on the root mail
 
-## Possible issues
- From field requires more work
-[http://msmtp.sourceforge.net/doc/msmtp.html#Envelope_002dfrom-address](http://msmtp.sourceforge.net/doc/msmtp.html#Envelope_002dfrom-address)
+## Documentation
+[msmtp manual](http://msmtp.sourceforge.net/doc/msmtp.html)

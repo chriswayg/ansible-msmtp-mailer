@@ -11,7 +11,7 @@ galaxy_info:
     versions:
     - trusty
     - xenial
-    - bionic
+    # - bionic
   categories:
   - system
   - networking
