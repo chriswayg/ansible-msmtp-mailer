@@ -2,8 +2,8 @@
 # Deploy msmtp
 - name: Update apt cache.
   apt:
-    upgrade: yes
     update_cache: yes
+    upgrade: no
     cache_valid_time: 14400 # 4 hours
   tags: mail
   when: ansible_os_family == "Debian"
@@ -20,6 +20,7 @@
     - sendmail*
   tags:
     - mail
+  when: msmtp_remove_mtas
 
 - name: Install msmtp and mailx on Debian.
   apt:
@@ -32,7 +33,7 @@
   notify: test mail
   when: ansible_os_family == "Debian"
 
-# not tested my modifications with Archlinux
+# I've not tested my modifications with Archlinux
 - name: Install msmtp and mailx on Archlinux.
   pacman: name={{item}} state=present
   with_items:
