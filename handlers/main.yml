@@ -4,3 +4,5 @@
   shell: echo "Test mail from new/updated MSTMP at" `hostname -f` | mail root -s "Test SMTP at `hostname -f`"
   tags: mail
   when: msmtp_send_test_mail
+  async: 30
+  poll: 5
