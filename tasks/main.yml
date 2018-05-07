@@ -35,7 +35,6 @@
   notify: test mail
   when: ansible_os_family == "Debian"
 
-# I've not tested my modifications with Archlinux
 - name: Install msmtp and mailx on Archlinux.
   pacman: name={{item}} state=present
   with_items:
