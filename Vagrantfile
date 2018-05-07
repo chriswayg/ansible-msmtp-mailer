@@ -42,7 +42,14 @@ boxes = [
     :box => "bento/debian-9",
     :ip => '10.0.0.16',
     :cpu => "50",
-    :ram => "512"
+    :ram => "256"
+  },
+  {
+    :name => "archlinux",
+    :box => "archlinux/archlinux",
+    :ip => '10.0.0.17',
+    :cpu => "50",
+    :ram => "256"
   },
 ]
 
@@ -50,6 +57,8 @@ role = File.basename(File.expand_path(File.dirname(__FILE__)))
 
 Vagrant.configure("2") do |config|
   boxes.each do |box|
+    # If archlinux gives an error with Linux 4.16 Virtualbox guest driver, disable synced folder
+    #config.vm.synced_folder '.', '/vagrant', disabled: true
     config.vm.define box[:name] do |vms|
       vms.vm.box = box[:box]
       vms.vm.hostname = "#{role}-#{box[:name]}"

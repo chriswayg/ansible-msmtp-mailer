@@ -20,7 +20,9 @@
     - sendmail*
   tags:
     - mail
-  when: msmtp_remove_mtas
+  when:
+    - msmtp_remove_mtas
+    - ansible_os_family == "Debian"
 
 - name: Install msmtp and mailx on Debian.
   apt:

@@ -13,6 +13,9 @@ galaxy_info:
     - trusty
     - xenial
     # - bionic
+  - name: ArchLinux
+    versions:
+    - any
   tags:
   - mail
   - system
