@@ -28,3 +28,5 @@ msmtp_logfile       : /var/log/msmtp.log
 msmtp_alias_default : devops@example.org
 msmtp_alias_root    : root@example.org
 msmtp_alias_cron    : cron@example.org
+
+msmtp_send_test_mail: No
