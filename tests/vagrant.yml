@@ -5,3 +5,4 @@
 
   roles:
     - role: ../../
+      msmtp_send_test_mail: yes
