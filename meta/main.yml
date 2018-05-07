@@ -7,6 +7,11 @@ galaxy_info:
     versions:
     - jessie
     - stretch
+  - name: Ubuntu
+    versions:
+    - trusty
+    - xenial
+    - bionic
   categories:
   - system
   - networking
