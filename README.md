@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ahelal/ansible-msmtp.svg?branch=master)](https://travis-ci.org/ahelal/ansible-msmtp)
+[![Build Status](https://travis-ci.org/chriswayg/ansible-msmtp.svg?branch=master)](https://travis-ci.org/chriswayg/ansible-msmtp)
 
 # Readme
 
