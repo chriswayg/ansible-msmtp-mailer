@@ -18,12 +18,5 @@ script:
   # Run tests.
   - ${PWD}/tests/test.sh
 
-  # Setup test site.
-  - 'docker exec ${container_id} mkdir -p /var/www/test'
-  - 'docker exec ${container_id} bash -c "echo Success >| /var/www/test/index.html"'
-
-  # Make sure virtualhost exists.
-  - 'docker exec --tty ${container_id} env TERM=xterm curl http://localhost/ | grep "Success"'
-
 notifications:
 webhooks: https://galaxy.ansible.com/api/v1/notifications/
