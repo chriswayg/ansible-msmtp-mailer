@@ -35,12 +35,12 @@
   notify: test mail
   when: ansible_os_family == "Debian"
 
-- name: Install msmtp and mailx on Archlinux.
+- name: Install msmtp and s-nail on Archlinux.
   pacman: name={{item}} state=present
   with_items:
     - msmtp
     - msmtp-mta
-    - mailutils
+    - s-nail
   when: ansible_os_family == "Archlinux"
 
 - name: Copy mstprc conf file.

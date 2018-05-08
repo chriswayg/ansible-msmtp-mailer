@@ -4,3 +4,4 @@
 
   roles:
     - role: role_under_test
+      msmtp_send_test_mail: yes
