@@ -29,8 +29,8 @@ msmtp_alias_default : emailer.tests@yandex.com
 msmtp_alias_root    : emailer.tests@yandex.com
 msmtp_alias_cron    : emailer.tests@yandex.com
 
-## Only enable, if the smtp account is working
-msmtp_send_test_mail: no
+## Enable, if the the smtp account is working
+msmtp_send_test_mail: yes
 
 ## This will remove most other mail transfer agents such as postfix, exim,...!
 msmtp_remove_mtas: no

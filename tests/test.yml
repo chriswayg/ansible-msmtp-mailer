@@ -4,4 +4,5 @@
 
   roles:
     - role: role_under_test
-      msmtp_send_test_mail: yes
+      # test mail works in a local docker container, but not on travis
+      msmtp_send_test_mail: no
