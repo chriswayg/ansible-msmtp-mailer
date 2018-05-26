@@ -2,7 +2,7 @@
 
 # chriswayg.msmtp-mailer
 
-This ansible role deploys msmtp as a mailer for Debian / Ubuntu.
+This ansible role deploys msmtp as a mailer for Debian, Ubuntu, Arch & Alpine Linux
 
 ## Prerequisite
 * Access to a functioning SMTP server.
