@@ -43,6 +43,20 @@
     - s-nail
   when: ansible_os_family == "Archlinux"
 
+- name: Install msmtp and mailx on Alpine.
+  apk:
+    name: msmtp, mailx
+    state: present
+    update_cache: yes
+  when: ansible_os_family == "Alpine"
+
+- name: Overwrite busybox sendmail link to point to mSMTP.
+  file:
+    src: /usr/bin/msmtp
+    dest: /usr/sbin/sendmail
+    state: link
+  when: ansible_os_family == "Alpine"
+
 - name: Copy mstprc conf file.
   template:
      src: msmtprc.j2

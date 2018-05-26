@@ -7,7 +7,7 @@ msmtp_accounts:
       auth     : "on"
       from     : emailer-tests@yandex.com
       user     : emailer-tests@yandex.com
-      password : pKiMAH7yoeTgEMTNscpV
+      password : WHUXevzmwYGpwi+XTu3CeY
       #Account 2
     - account  : mysmtp
       host     : smtp.example

@@ -16,6 +16,9 @@ galaxy_info:
   - name: ArchLinux
     versions:
     - any
+  - name: Alpine
+    versions:
+    - any
   tags:
   - mail
   - system

@@ -51,6 +51,13 @@ boxes = [
     :cpu => "50",
     :ram => "256"
   },
+  {
+    :name => "alpine",
+    :box => "chriswayg/alpine-3.7-x86_64",
+    :ip => '10.0.0.18',
+    :cpu => "50",
+    :ram => "256"
+  },
 ]
 
 role = File.basename(File.expand_path(File.dirname(__FILE__)))
