@@ -1,5 +1,9 @@
 ---
 # Deploy msmtp
+
+# TODO:
+# Fix: Check if mailserver is ready, as Test mail will only work, if msmtp is setup after the mailserver is already configured
+
 - name: Update apt cache.
   apt:
     update_cache: yes
@@ -47,7 +51,7 @@
   apk:
     name: msmtp, mailx
     state: present
-    update_cache: yes
+    update_cache: no
   when: ansible_os_family == "Alpine"
 
 - name: Overwrite busybox sendmail link to point to mSMTP.
