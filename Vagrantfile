@@ -58,6 +58,13 @@ boxes = [
     :cpu => "50",
     :ram => "256"
   },
+  {
+    :name => "rancheros",
+    :box => "chriswayg/RancherOS",
+    :ip => '10.0.0.19',
+    :cpu => "50",
+    :ram => "256"
+  },
 ]
 
 role = File.basename(File.expand_path(File.dirname(__FILE__)))
@@ -65,17 +72,19 @@ role = File.basename(File.expand_path(File.dirname(__FILE__)))
 Vagrant.configure("2") do |config|
   boxes.each do |box|
     # If archlinux gives an error with Linux 4.16 Virtualbox guest driver, disable synced folder
-    #config.vm.synced_folder '.', '/vagrant', disabled: true
     config.vm.define box[:name] do |vms|
       vms.vm.box = box[:box]
-      vms.vm.hostname = "#{role}-#{box[:name]}"
-
+      #vms.vm.hostname = "#{role}-#{box[:name]}"
+      vms.vm.synced_folder ".", "/vagrant", disabled: true
       vms.vm.provider "virtualbox" do |v|
-        v.customize ["modifyvm", :id, "--cpuexecutioncap", box[:cpu]]
-        v.customize ["modifyvm", :id, "--memory", box[:ram]]
+        v.check_guest_additions = false
+        v.functional_vboxsf = false
+        v.memory = "1024"
+        # v.customize ["modifyvm", :id, "--cpuexecutioncap", box[:cpu]]
+        # v.customize ["modifyvm", :id, "--memory", box[:ram]]
       end
 
-      vms.vm.network :private_network, ip: box[:ip]
+      #vms.vm.network :private_network, ip: box[:ip]
 
       vms.vm.provision :ansible do |ansible|
         ansible.playbook = "tests/vagrant.yml"
