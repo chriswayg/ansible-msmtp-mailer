@@ -2,23 +2,25 @@
 # Deploy msmtp
 
 # TODO:
-# Fix: Check if mailserver is ready, as Test mail will only work, if msmtp is setup after the mailserver is already configured
+# Fix: Check if mailserver is ready, as Test mail will only work,
+# if msmtp is setup after the mailserver is already configured
 
 - name: Update apt cache.
   apt:
     update_cache: yes
-    upgrade: no
+    upgrade: "no"
     cache_valid_time: 14400 # 4 hours
   tags: mail
   when: ansible_os_family == "Debian"
 
 - name: Remove other MTAs.
   apt:
-    pkg: "{{ item }}"
+    name: "{{ packages }}"
     state: absent
     autoremove: yes
     purge: yes
-  with_items:
+  vars:
+    packages:
     - exim4*
     - postfix*
     - sendmail*
@@ -30,9 +32,10 @@
 
 - name: Install msmtp and mailx on Debian.
   apt:
-    pkg: "{{item}}"
+    name: "{{ packages }}"
     state: present
-  with_items:
+  vars:
+    packages:
     - msmtp-mta
     - bsd-mailx
   tags: mail
@@ -40,8 +43,11 @@
   when: ansible_os_family == "Debian"
 
 - name: Install msmtp and s-nail on Archlinux.
-  pacman: name={{item}} state=present
-  with_items:
+  pacman:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
     - msmtp
     - msmtp-mta
     - s-nail
@@ -49,9 +55,13 @@
 
 - name: Install msmtp and mailx on Alpine.
   apk:
-    name: msmtp, mailx
+    name: "{{ packages }}"
     state: present
     update_cache: no
+  vars:
+    packages:
+    - msmtp
+    - mailx
   when: ansible_os_family == "Alpine"
 
 - name: Overwrite busybox sendmail link to point to mSMTP.
