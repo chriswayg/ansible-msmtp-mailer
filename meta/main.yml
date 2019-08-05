@@ -8,11 +8,12 @@ galaxy_info:
     versions:
     - jessie
     - stretch
+    - buster
   - name: Ubuntu
     versions:
     - trusty
     - xenial
-    # - bionic
+    - bionic
   - name: ArchLinux
     versions:
     - any
