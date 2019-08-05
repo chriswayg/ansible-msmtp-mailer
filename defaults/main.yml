@@ -1,35 +1,36 @@
 ---
 msmtp_accounts:
     # Account 1 - a real account for testing (feel free to use it for this role)
-    - account  : yandex
-      host     : smtp.yandex.com
-      port     : 587
-      auth     : "on"
-      from     : emailer-tests@yandex.com
-      user     : emailer-tests@yandex.com
-      password : WHUXevzmwYGpwi+XTu3CeY
+    # Uses Yandex app password limited to POP3, SMTP and IMAP
+    - account:   yandex
+      host:      smtp.yandex.com
+      port:      587
+      auth:      "on"
+      from:      emailer-tests@yandex.com
+      user:      emailer-tests@yandex.com
+      password:  jhlrizltgkmnkkgm
       #Account 2
-    - account  : mysmtp
-      host     : smtp.example
-      port     : 587
-      auth     : "on"
-      from     : admin@example.org
-      user     : myuser@example.org
-      password : plain-text-password2
+    - account:   mysmtp
+      host:      smtp.example
+      port:      587
+      auth:      "on"
+      from:      admin@example.org
+      user:      myuser@example.org
+      password:  plain-text-password2
 
 msmtp_default_account: yandex
-msmtp_domain         : yandex.com
+msmtp_domain:          yandex.com
 
 ## Logging (Select A) "syslog" or B) "file" logging or C) "no" log
-msmtp_log           : file
-msmtp_logfile       : /var/log/msmtp.log
+msmtp_log:       file
+msmtp_logfile:   /var/log/msmtp.log
 
 ## Aliases mail account ( only msmtp_alias_default is required the rest is optional )
-msmtp_alias_default : emailer.tests@yandex.com
-msmtp_alias_root    : emailer.tests@yandex.com
-msmtp_alias_cron    : emailer.tests@yandex.com
+msmtp_alias_default: emailer.tests@yandex.com
+msmtp_alias_root:    emailer.tests@yandex.com
+msmtp_alias_cron:    emailer.tests@yandex.com
 
-## Enable, if the the smtp account is working
+## Enable, if the the default smtp account is working
 msmtp_send_test_mail: yes
 
 ## This will remove most other mail transfer agents such as postfix, exim,...!
