@@ -8,8 +8,10 @@ This ansible role deploys msmtp as a mailer for Debian, Ubuntu, Arch & Alpine Li
 * Access to a functioning SMTP server.
 
 ## How to install
-* Use github to clone/fork into your role directory
-* ansible galaxy ```ansible-galaxy install chriswayg.msmtp-mailer```
+* Either use github to clone/dwonload into your roles directory:
+  - `git clone https://github.com/chriswayg/ansible-etckeeper.git`
+* Or use ansible galaxy:
+  - `ansible-galaxy install chriswayg.msmtp-mailer`
 
 ## Variables
   All the default variables are located **defaults/main.yml**. Mostly you would need to configure the following variables.
@@ -17,20 +19,20 @@ This ansible role deploys msmtp as a mailer for Debian, Ubuntu, Arch & Alpine Li
 
       ```
       msmtp_accounts:
-      - account  : gmail
-        host     : smtp.gmail.com
-        port     : 587
-        auth     : "on"
-        from     : example@gmail.example
-        user     : example@gmail.example
-        password : "some password"
-      - account  : mysmtp
-        host     : smtp.example
-        port     : 587
-        auth     : "on"
-        from     : admin@example.org
-        user     : myuser@example.org
-        password : plain-text-password2
+      - account:   gmail
+        host:      smtp.gmail.com
+        port:      587
+        auth:      "on"
+        from:      example@gmail.example
+        user:      example@gmail.example
+        password:  "some password"
+      - account:   mysmtp
+        host:      smtp.example
+        port:      587
+        auth:      "on"
+        from:      admin@example.org
+        user:      myuser@example.org
+        password:  plain-text-password2
       ```
   - *msmtp_default_account:* Default smtp account to use
 
@@ -69,18 +71,26 @@ This ansible role deploys msmtp as a mailer for Debian, Ubuntu, Arch & Alpine Li
 ## Configure
 You can configure your variables in ansible with one of the following
 
- * Create a variable in host/group variables directory. (recommended)
- * Editing var/main.yml
+ * Create a variable in host/group variables directory.
+ * Editing vars/main.yml
  * Run ansible-playbook with -e
- * Edit the default/main.yml (not recommended)
+ * Edit the defaults/main.yml (not recommended)
+
+## Example Playbook
+```yaml
+---
+- hosts: all
+  roles:
+    - chriswayg.msmtp-mailer
+```
 
 ## Run
-**By default mstmp will work as the configuration uses a real smtp server (for testing only!)**
+**By default mstmp will function out of the box with the defaults/main.yml settings, because the configuration uses a real smtp server (for testing only!)**
 
   ```ansible-playbook -l hostname msmtp.yml```
 
 ## Test
-  You should get a test mail if it works on the root mail
+  You should get a test mail if it works as expected on the root mail
 
 ## Documentation
 [msmtp manual](http://msmtp.sourceforge.net/doc/msmtp.html)
