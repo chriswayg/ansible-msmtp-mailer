@@ -94,3 +94,11 @@ You can configure your variables in ansible with one of the following
 
 ## Documentation
 [msmtp manual](http://msmtp.sourceforge.net/doc/msmtp.html)
+
+## Authors:
+- Forked from [GitHub - AutomationWithAnsible/ansible-msmtp: Ansible MSTMP](https://github.com/AutomationWithAnsible/ansible-msmtp)
+  - By [Adham Helal](https://github.com/ahelal) 
+- [Christian Wagner](https://github.com/chriswayg)
+
+## License:
+- Apache 2.0
