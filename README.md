@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/chriswayg/ansible-msmtp-mailer.svg?branch=master)](https://travis-ci.org/chriswayg/ansible-msmtp-mailer)
 
-# chriswayg.msmtp-mailer
+# ansible-msmtp-mailer
 
 This ansible role deploys msmtp as a mailer for Debian, Ubuntu, Arch & Alpine Linux
 
@@ -8,8 +8,8 @@ This ansible role deploys msmtp as a mailer for Debian, Ubuntu, Arch & Alpine Li
 * Access to a functioning SMTP server.
 
 ## How to install
-* Either use github to clone/dwonload into your roles directory:
-  - `git clone https://github.com/chriswayg/ansible-etckeeper.git`
+* Either use github to clone/download into your roles directory:
+  - `git clone https://github.com/chriswayg/ansible-msmtp-mailer.git`
 * Or use ansible galaxy:
   - `ansible-galaxy install chriswayg.msmtp-mailer`
 
@@ -81,7 +81,7 @@ You can configure your variables in ansible with one of the following
 ---
 - hosts: all
   roles:
-    - chriswayg.msmtp-mailer
+    - ansible-msmtp-mailer
 ```
 
 ## Run
@@ -97,7 +97,7 @@ You can configure your variables in ansible with one of the following
 
 ## Authors:
 - Forked from [GitHub - AutomationWithAnsible/ansible-msmtp: Ansible MSTMP](https://github.com/AutomationWithAnsible/ansible-msmtp)
-  - By [Adham Helal](https://github.com/ahelal) 
+  - By [Adham Helal](https://github.com/ahelal)
 - [Christian Wagner](https://github.com/chriswayg)
 
 ## License:
