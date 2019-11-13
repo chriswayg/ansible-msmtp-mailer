@@ -48,3 +48,6 @@ msmtp_test_mail_recipient: tester@example.org
 
 ## This will remove most other mail transfer agents such as postfix, exim,...!
 msmtp_remove_mtas: no
+
+## Enable whether to use STARTTLS or not
+msmtp_tls_starttls: yes
