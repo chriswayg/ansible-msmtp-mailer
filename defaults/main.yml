@@ -18,16 +18,20 @@ msmtp_accounts:
       user:      myuser@example.org
       password:  plain-text-password2
       #Account 3
-    - account:   gmail
-      host:      smtp.gmail.com
-      port:      587
-      auth:      "on"
-      from:      example@gmail.example
-      user:      example@gmail.example
-      password:  "some password"
+    - account:    gmail
+      host:       smtp.gmail.com
+      port:       587
+      auth:       "on"
+      user:       example@gmail.example
+      password:   "some password"
+      maildomain: gmail.example
 
 msmtp_default_account: yandex
 msmtp_domain:          yandex.com
+
+## Select whether to auto-generate from address from 'user@maildomain`
+## Uses `from` field from account when off.
+msmtp_auto_from: 'on'
 
 ## Logging (Select A) "syslog" or B) "file" logging or C) "no" log
 msmtp_log:       file
@@ -38,7 +42,7 @@ msmtp_alias_default: emailer.tests@yandex.com
 msmtp_alias_root:    emailer.tests@yandex.com
 msmtp_alias_cron:    emailer.tests@yandex.com
 
-## Enable, after the the default smtp account is working
+## Enable, after the default smtp account is working
 msmtp_send_test_mail: no
 msmtp_test_mail_recipient: tester@example.org
 
