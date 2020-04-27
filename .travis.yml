@@ -7,8 +7,8 @@ env:
   - distro: debian10
   - distro: debian9
   - distro: debian8
-  - distro: archlinux
   - distro: alpine
+  #- distro: archlinux
 
 script:
   # Configure test script so we can run extra tests after playbook is run
