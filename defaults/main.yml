@@ -35,8 +35,9 @@ msmtp_logfile:   ~/.msmtp.log
 
 ## Aliases mail account ( only msmtp_alias_default is required the rest is optional )
 msmtp_alias_default: emailer.tests@yandex.com
-msmtp_alias_root:    emailer.tests@yandex.com
-msmtp_alias_cron:    emailer.tests@yandex.com
+# Optional aliases for root and cron mails
+# msmtp_alias_root:    emailer.tests@yandex.com
+# msmtp_alias_cron:    emailer.tests@yandex.com
 
 ## Enable, after the the default smtp account is working
 msmtp_send_test_mail: no
