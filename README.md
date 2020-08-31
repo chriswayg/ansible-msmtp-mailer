@@ -85,7 +85,7 @@ You can configure your variables in ansible with one of the following
 ```
 
 ## Run
-**By default mstmp will function out of the box with the defaults/main.yml settings, because the configuration uses a real smtp server (for testing only!)**
+- mstmp used to function out of the box with the provided defaults/main.yml settings, because the configuration used a real smtp server for testing, but Yandex does not allow this any more. Instead use a Gmail account for testing.
 
   ```ansible-playbook -l hostname msmtp.yml```
 

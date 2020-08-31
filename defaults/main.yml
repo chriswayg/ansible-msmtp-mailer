@@ -1,6 +1,6 @@
 ---
 msmtp_accounts:
-    # Account 1 - its a real account for testing (but yandex now blocks it)
+    # Account 1 - it was a real account for testing (but yandex now blocks it)
     # Uses Yandex app password limited to POP3, SMTP and IMAP
     - account:   yandex
       host:      smtp.yandex.com
