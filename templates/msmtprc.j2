@@ -34,10 +34,13 @@ account  {{msmtp_account.account}}
 host     {{msmtp_account.host}}
 port     {{msmtp_account.port}}
 auth     {{msmtp_account.auth}}
+{% if msmtp_account.from is defined %}
 from     {{msmtp_account.from}}
+{% elif msmtp_account.maildomain is defined %}
+maildomain {{msmtp_account.maildomain}}
+{% endif %}
 user     {{msmtp_account.user}}
 password {{msmtp_account.password}}
-maildomain {{msmtp_account.maildomain}}
 {% endfor %}
 {% endif %}
 
