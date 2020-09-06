@@ -86,7 +86,7 @@
     src: aliases.j2
     dest: /etc/aliases
     owner: root
-    group: root
-    mode: 0644
+    group: www-data
+    mode: 0640
   tags: mail
   notify: test mail

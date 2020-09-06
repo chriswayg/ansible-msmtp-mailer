@@ -4,7 +4,7 @@
 defaults
 auth   on
 tls    on
-tls_starttls   on
+tls_starttls   {{ msmtp_tls_starttls }}
 {% if msmtp_tls_trust_file is defined %}
 tls_trust_file {{msmtp_tls_trust_file}}
 {% else %}
@@ -23,7 +23,7 @@ logfile  {{msmtp_logfile}}
 # default is localhost. Use domain part of your email address or FQDN of host.
 domain {{msmtp_domain}}
 # default is off. When on, an envelope-from address of the form user@domain will be generated.
-auto_from off
+auto_from {{ msmtp_auto_from }}
 # The default is to remove BCC headers.
 # remove_bcc_headers  on|off
 
@@ -34,7 +34,11 @@ account  {{msmtp_account.account}}
 host     {{msmtp_account.host}}
 port     {{msmtp_account.port}}
 auth     {{msmtp_account.auth}}
+{% if msmtp_account.from is defined %}
 from     {{msmtp_account.from}}
+{% elif msmtp_account.maildomain is defined %}
+maildomain {{msmtp_account.maildomain}}
+{% endif %}
 user     {{msmtp_account.user}}
 password {{msmtp_account.password}}
 {% endfor %}
