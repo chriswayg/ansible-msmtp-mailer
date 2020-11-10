@@ -30,8 +30,9 @@ msmtp_default_account: yandex
 msmtp_domain:          yandex.com
 
 ## Logging (Select A) "syslog" or B) "file" logging or C) "no" log
-msmtp_log:       file
-msmtp_logfile:   ~/.msmtp.log
+msmtp_log:             file
+msmtp_syslog_facility: ""
+msmtp_logfile:         ~/.msmtp.log
 
 ## Aliases mail account ( only msmtp_alias_default is required the rest is optional )
 msmtp_alias_default: emailer.tests@yandex.com

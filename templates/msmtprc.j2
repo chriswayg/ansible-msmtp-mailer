@@ -14,7 +14,11 @@ tls_trust_file /etc/ssl/certs/ca-certificates.crt
 # Logging
 {% if msmtp_log is defined %}
 {% if msmtp_log == "syslog" %}
+{% if msmtp_syslog_facility %}
+syslog {{msmtp_syslog_facility}}
+{% else %}
 syslog on
+{% endif %}
 {% elif msmtp_log == "file" and msmtp_logfile is defined %}
 logfile  {{msmtp_logfile}}
 {% endif %}
