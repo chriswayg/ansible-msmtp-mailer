@@ -44,3 +44,8 @@ msmtp_test_mail_recipient: tester@example.org
 
 ## This will remove most other mail transfer agents such as postfix, exim,...!
 msmtp_remove_mtas: no
+
+## Permissions for the configuration file
+msmtprc_owner: root
+msmtprc_group: root
+msmtprc_mode: 0644
