@@ -26,10 +26,19 @@ logfile  {{msmtp_logfile}}
 
 # default is localhost. Use domain part of your email address or FQDN of host.
 domain {{msmtp_domain}}
-# default is off. When on, an envelope-from address of the form user@domain will be generated.
-auto_from off
+
 # The default is to remove BCC headers.
 # remove_bcc_headers  on|off
+
+{% if (msmtp_set_from_header is defined) and (msmtp_set_from_header != '') %}
+{% if msmtp_set_from_header == true %}
+set_from_header on
+{% elif msmtp_set_from_header == false %}
+set_from_header off
+{% else %}
+set_from_header {{msmtp_set_from_header}}
+{% endif %}
+{% endif %}
 
 {% if msmtp_accounts is defined %}
 {% for msmtp_account in msmtp_accounts %}
