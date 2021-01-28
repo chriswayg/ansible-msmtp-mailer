@@ -31,7 +31,8 @@ msmtp_domain:          yandex.com
 
 ## Logging (Select A) "syslog" or B) "file" logging or C) "no" log
 msmtp_log:             file
-msmtp_syslog_facility: ""
++## If using `syslog`, can be one of 'LOG_USER', 'LOG_MAIL', 'LOG_LOCAL0', …, 'LOG_LOCAL7'.
++msmtp_syslog_facility: "LOG_USER"
 msmtp_logfile:         ~/.msmtp.log
 
 ## Aliases mail account ( only msmtp_alias_default is required the rest is optional )
