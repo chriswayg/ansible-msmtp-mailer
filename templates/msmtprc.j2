@@ -37,6 +37,9 @@ auth     {{msmtp_account.auth}}
 from     {{msmtp_account.from}}
 user     {{msmtp_account.user}}
 password {{msmtp_account.password}}
+{% if msmtp_account.tls_starttls is defined %}
+tls_starttls {{msmtp_account.tls_starttls}}
+{% endif %}
 {% endfor %}
 {% endif %}
 
