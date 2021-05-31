@@ -4,7 +4,11 @@
 defaults
 auth   on
 tls    on
+{% if msmtp_tls_starttls is defined %}
+tls_starttls {{msmtp_tls_starttls}}
+{% else %}
 tls_starttls   on
+{% endif %}
 {% if msmtp_tls_trust_file is defined %}
 tls_trust_file {{msmtp_tls_trust_file}}
 {% else %}
