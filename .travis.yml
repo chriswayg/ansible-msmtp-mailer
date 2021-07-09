@@ -2,17 +2,15 @@
 os: linux
 arch:
   - arm64
-  - ppc64le
-  - s390x
-  
+  - amd64
+
 services: docker
 
 env:
   - distro: ubuntu1804
-  - distro: ubuntu1604
+  #- distro: ubuntu1604
   - distro: debian10
-  - distro: debian9
-  - distro: debian8
+  #- distro: debian9
   - distro: alpine
   #- distro: archlinux
 
