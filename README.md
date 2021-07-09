@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/chriswayg/ansible-msmtp-mailer.svg?branch=master)](https://travis-ci.org/chriswayg/ansible-msmtp-mailer)
+[![Build Status](https://travis-ci.com/chriswayg/ansible-msmtp-mailer.svg?branch=master)](https://travis-ci.com/chriswayg/ansible-msmtp-mailer)
 
 # ansible-msmtp-mailer
 
