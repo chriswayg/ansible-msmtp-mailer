@@ -75,9 +75,9 @@
   template:
      src: msmtprc.j2
      dest: /etc/msmtprc
-     owner: root
-     group: root
-     mode: 0644
+     owner: "{{ msmtprc_owner }}"
+     group: "{{ msmtprc_group }}"
+     mode: "{{ msmtprc_mode }}"
   tags: mail
   notify: test mail
 
