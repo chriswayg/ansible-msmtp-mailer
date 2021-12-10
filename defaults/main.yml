@@ -48,6 +48,12 @@ msmtp_test_mail_recipient: tester@example.org
 ## This will remove most other mail transfer agents such as postfix, exim,...!
 msmtp_remove_mtas: no
 
+## From header
+# - `on` to always add (or override any existing) From header
+# - `off` to never add (or alter an existing) From header
+# - `auto` to add a From header if one is not present
+msmtp_set_from_header: off
+
 ## Permissions for the configuration file
 msmtprc_owner: root
 msmtprc_group: root
