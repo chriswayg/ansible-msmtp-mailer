@@ -7,8 +7,9 @@ arch:
 services: docker
 
 env:
+  - distro: ubuntu2204
+  - distro: ubuntu2004
   - distro: ubuntu1804
-  #- distro: ubuntu1604
   - distro: debian10
   #- distro: debian9
   - distro: alpine
