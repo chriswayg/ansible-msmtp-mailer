@@ -34,13 +34,16 @@ msmtp_domain:          yandex.com
 msmtp_auto_from: 'on'
 
 ## Logging (Select A) "syslog" or B) "file" logging or C) "no" log
-msmtp_log:       file
-msmtp_logfile:   ~/.msmtp.log
+msmtp_log:             file
+## If using `syslog`, can be one of 'LOG_USER', 'LOG_MAIL', 'LOG_LOCAL0', …, 'LOG_LOCAL7'.
+msmtp_syslog_facility: "LOG_USER"
+msmtp_logfile:         ~/.msmtp.log
 
 ## Aliases mail account ( only msmtp_alias_default is required the rest is optional )
-msmtp_alias_default: default.alias@example.org
-msmtp_alias_root:
-msmtp_alias_cron:
+msmtp_alias_default: emailer.tests@yandex.com
+# Optional aliases for root and cron mails
+# msmtp_alias_root:    emailer.tests@yandex.com
+# msmtp_alias_cron:    emailer.tests@yandex.com
 
 ## Enable, after the default smtp account is working
 msmtp_send_test_mail: no
@@ -49,5 +52,7 @@ msmtp_test_mail_recipient: tester@example.org
 ## This will remove most other mail transfer agents such as postfix, exim,...!
 msmtp_remove_mtas: no
 
-## Enable whether to use STARTTLS or not
-msmtp_tls_starttls: yes
+## Permissions for the configuration file
+msmtprc_owner: root
+msmtprc_group: root
+msmtprc_mode: 0644

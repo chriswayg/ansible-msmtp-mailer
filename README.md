@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/chriswayg/ansible-msmtp-mailer.svg?branch=master)](https://travis-ci.org/chriswayg/ansible-msmtp-mailer)
+[![Build Status](https://travis-ci.com/chriswayg/ansible-msmtp-mailer.svg?branch=master)](https://travis-ci.com/chriswayg/ansible-msmtp-mailer)
 
 # ansible-msmtp-mailer
 
@@ -33,6 +33,7 @@ This ansible role deploys msmtp as a mailer for Debian, Ubuntu, Arch & Alpine Li
         from:      admin@example.org
         user:      myuser@example.org
         password:  plain-text-password2
+        tls_starttls: "off"
       ```
   - *msmtp_default_account:* Default smtp account to use
 
@@ -67,6 +68,19 @@ This ansible role deploys msmtp as a mailer for Debian, Ubuntu, Arch & Alpine Li
      - *msmtp_alias_cron:* cron email this optional
 
          `msmtp_alias_cron : cron@example.com`
+
+  - Configuration file permissions
+     - *msmtprc_owner:* owner of /etc/msmtprc, default `root`
+
+         `msmtprc_owner : root`
+
+     - *msmtprc_group:* group of /etc/msmtprc, default `root`
+
+         `msmtprc_group : root`
+
+     - *msmtprc_mode:* group of /etc/msmtprc, default `0644`
+
+         `msmtprc_mode : 0644`
 
 ## Configure
 You can configure your variables in ansible with one of the following

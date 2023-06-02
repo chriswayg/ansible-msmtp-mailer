@@ -4,7 +4,11 @@
 defaults
 auth   on
 tls    on
-tls_starttls   {{ msmtp_tls_starttls }}
+{% if msmtp_tls_starttls is defined %}
+tls_starttls {{msmtp_tls_starttls}}
+{% else %}
+tls_starttls   on
+{% endif %}
 {% if msmtp_tls_trust_file is defined %}
 tls_trust_file {{msmtp_tls_trust_file}}
 {% else %}
@@ -14,7 +18,7 @@ tls_trust_file /etc/ssl/certs/ca-certificates.crt
 # Logging
 {% if msmtp_log is defined %}
 {% if msmtp_log == "syslog" %}
-syslog on
+syslog {{ msmtp_syslog_facility }}
 {% elif msmtp_log == "file" and msmtp_logfile is defined %}
 logfile  {{msmtp_logfile}}
 {% endif %}
@@ -41,6 +45,9 @@ maildomain {{msmtp_account.maildomain}}
 {% endif %}
 user     {{msmtp_account.user}}
 password {{msmtp_account.password}}
+{% if msmtp_account.tls_starttls is defined %}
+tls_starttls {{msmtp_account.tls_starttls}}
+{% endif %}
 {% endfor %}
 {% endif %}
 
